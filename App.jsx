@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react'
+=======
+import React, { useState } from 'react'
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
 import AuthForm from './AuthForm'
 import ProductList from './ProductList'
 import BannerCarousel from './BannerCarousel'
@@ -11,6 +15,7 @@ function App() {
   const [search, setSearch] = useState('')
   const [showProfile, setShowProfile] = useState(false)
   const [editProfile, setEditProfile] = useState(false)
+<<<<<<< HEAD
   const [editData, setEditData] = useState({ username: '', address: '' })
   const [showChangePw, setShowChangePw] = useState(false)
   const [currentPw, setCurrentPw] = useState('')
@@ -33,6 +38,9 @@ function App() {
         localStorage.removeItem('token')
       })
   }, [])
+=======
+  const [editData, setEditData] = useState({ username: '', phone: '', address: '' })
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
 
   // Lọc sản phẩm theo search nếu có
   const handleSearch = (value) => {
@@ -89,6 +97,7 @@ function App() {
               <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'rgba(0,0,0,0.25)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div style={{ background: '#fff', borderRadius: 0, boxShadow: 'none', padding: 0, width: '100vw', height: '100vh', minWidth: 0, minHeight: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+<<<<<<< HEAD
                     <AuthForm onAuth={(data) => {
                       const token = localStorage.getItem('token')
                       if (!token) { setUser({ role: data.role || 'customer' }); setShowHomepage(true); setShowAuth(false); return }
@@ -97,6 +106,9 @@ function App() {
                         .then(profile => { setUser(profile); setShowHomepage(true); setShowAuth(false) })
                         .catch(() => { setUser({ role: data.role || 'customer' }); setShowHomepage(true); setShowAuth(false) })
                     }} onShowHomepage={() => { setShowHomepage(true); setShowAuth(false); }} forceShowForm />
+=======
+                    <AuthForm onAuth={setUser} onShowHomepage={() => { setShowHomepage(true); setShowAuth(false); }} forceShowForm />
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
                   </div>
                 </div>
                 <button style={{ position: 'absolute', top: 24, right: 32, fontSize: 32, background: 'none', border: 'none', color: '#1976d2', cursor: 'pointer', fontWeight: 700 }} onClick={() => setShowAuth(false)}>&times;</button>
@@ -122,6 +134,7 @@ function App() {
               <svg width="60" height="60" fill="none" viewBox="0 0 24 24" style={{ marginBottom: 16 }}><circle cx="12" cy="8" r="4" stroke="#1976d2" strokeWidth="2"/><path d="M4 20c0-3.314 3.134-6 7-6s7 2.686 7 6" stroke="#1976d2" strokeWidth="2"/></svg>
               <h2 style={{ color: '#1976d2', fontWeight: 700, fontSize: 26, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 8 }}>
                 Thông tin tài khoản
+<<<<<<< HEAD
               </h2>
               {editProfile ? (
                 <form style={{
@@ -271,6 +284,58 @@ function App() {
                     <path d="M14 3.5h5.5a1.5 1.5 0 0 1 1.5 1.5v14a1.5 1.5 0 0 1-1.5 1.5H14" stroke="#d32f2f" strokeWidth="2.2" strokeLinejoin="round"/>
                     <path d="M14 3.5v17" stroke="#d32f2f" strokeWidth="2.2"/>
                   </svg>
+=======
+                <button onClick={() => {
+                  setEditProfile(true);
+                  setEditData({
+                    username: user.username || user.name || '',
+                    phone: user.phone || '',
+                    address: user.address || ''
+                  });
+                }} style={{ background: 'none', border: 'none', cursor: 'pointer', marginLeft: 8 }} title="Chỉnh sửa">
+                  <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M15.232 5.232a3 3 0 0 1 4.243 4.243l-9.193 9.193a2 2 0 0 1-.878.513l-3.387.847a.5.5 0 0 1-.606-.606l.847-3.387a2 2 0 0 1 .513-.878l9.193-9.193Zm3.182-1.06a5 5 0 0 0-7.07 0l-9.193 9.192A4 4 0 0 0 1.343 17.657l.847 3.387a2.5 2.5 0 0 0 3.03 3.03l3.387-.847a4 4 0 0 0 2.293-1.06l9.193-9.193a5 5 0 0 0 0-7.07Z" stroke="#1976d2" strokeWidth="2"/></svg>
+                </button>
+              </h2>
+              {editProfile ? (
+                <form style={{ width: '100%', marginTop: 10 }} onSubmit={e => {
+                  e.preventDefault();
+                  setUser(u => ({ ...u, ...editData }));
+                  setEditProfile(false);
+                }}>
+                  <div style={{ marginBottom: 10 }}>
+                    <label style={{ fontWeight: 600 }}>Tên đăng nhập:</label>
+                    <input type="text" value={editData.username} onChange={e => setEditData(d => ({ ...d, username: e.target.value }))} style={{ width: '100%', padding: 7, borderRadius: 6, border: '1.5px solid #bdbdbd', fontSize: 15, marginTop: 4 }} required />
+                  </div>
+                  <div style={{ marginBottom: 10 }}>
+                    <label style={{ fontWeight: 600 }}>Số điện thoại:</label>
+                    <input type="text" value={editData.phone} onChange={e => setEditData(d => ({ ...d, phone: e.target.value }))} style={{ width: '100%', padding: 7, borderRadius: 6, border: '1.5px solid #bdbdbd', fontSize: 15, marginTop: 4 }} />
+                  </div>
+                  <div style={{ marginBottom: 10 }}>
+                    <label style={{ fontWeight: 600 }}>Địa chỉ:</label>
+                    <input type="text" value={editData.address} onChange={e => setEditData(d => ({ ...d, address: e.target.value }))} style={{ width: '100%', padding: 7, borderRadius: 6, border: '1.5px solid #bdbdbd', fontSize: 15, marginTop: 4 }} />
+                  </div>
+                  <div style={{ display: 'flex', gap: 10, marginTop: 12 }}>
+                    <button type="submit" style={{ fontSize: 15, padding: '7px 20px', borderRadius: 8, background: '#1976d2', color: '#fff', border: 'none', fontWeight: 600, cursor: 'pointer' }}>Lưu</button>
+                    <button type="button" style={{ fontSize: 15, padding: '7px 20px', borderRadius: 8, background: '#fff', color: '#1976d2', border: '2px solid #1976d2', fontWeight: 600, cursor: 'pointer' }} onClick={() => setEditProfile(false)}>Hủy</button>
+                  </div>
+                </form>
+              ) : (
+                <div style={{ fontSize: 17, margin: '10px 0', color: '#333', textAlign: 'left', width: '100%' }}>
+                  <div><b>Tên đăng nhập:</b> {user.username || user.name}</div>
+                  {user.email && <div><b>Email:</b> {user.email}</div>}
+                  {user.phone && <div><b>Số điện thoại:</b> {user.phone}</div>}
+                  {user.address && <div><b>Địa chỉ:</b> {user.address}</div>}
+                  {user.dob && <div><b>Ngày sinh:</b> {user.dob}</div>}
+                  <div><b>Vai trò:</b> {user.role}</div>
+                </div>
+              )}
+              <div style={{ display: 'flex', gap: 12, marginTop: 10 }}>
+                <button style={{ fontSize: 15, padding: '7px 20px', borderRadius: 8, background: '#fff', color: '#1976d2', border: '2px solid #1976d2', fontWeight: 600, cursor: 'pointer' }} onClick={() => alert('Tính năng đổi mật khẩu sẽ được tích hợp!')}>
+                  Đổi mật khẩu
+                </button>
+                <button style={{ fontSize: 15, padding: '7px 20px', borderRadius: 8, background: '#fff', color: '#d32f2f', border: '2px solid #d32f2f', fontWeight: 600, cursor: 'pointer' }} onClick={() => { setUser(null); setShowProfile(false); setShowHomepage(true); }}>
+                  Đăng xuất
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
                 </button>
               </div>
               <button style={{ marginTop: 18, fontSize: 16, padding: '8px 32px', borderRadius: 8, background: '#1976d2', color: '#fff', border: 'none', fontWeight: 600, cursor: 'pointer' }} onClick={() => setShowProfile(false)}>
@@ -279,6 +344,7 @@ function App() {
             </div>
           </div>
         )}
+<<<<<<< HEAD
         {showChangePw && (
           <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.25)', zIndex: 2100, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <div style={{ background: '#fff', borderRadius: 18, boxShadow: '0 2px 16px 0 rgba(60,60,60,0.13)', padding: 28, width: 370, border: '1.5px solid #e5eaf1' }}>
@@ -334,6 +400,8 @@ function App() {
             </div>
           </div>
         )}
+=======
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
       </>
     )
   )

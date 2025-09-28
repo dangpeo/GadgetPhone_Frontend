@@ -18,6 +18,7 @@ function AdminDashboard() {
   const [editProductId, setEditProductId] = useState(null);
   const [editProduct, setEditProduct] = useState({ name: '', price: '', description: '', quantity: '', image: '' });
   const [editError, setEditError] = useState('');
+<<<<<<< HEAD
   // State cho user
   const [users, setUsers] = useState([]);
   const [userLoading, setUserLoading] = useState(false);
@@ -140,6 +141,8 @@ function AdminDashboard() {
       setTimeout(() => setToastMsg(''), 1800);
     }
   };
+=======
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
   // Mở form sửa sản phẩm
   const handleEditClick = (product) => {
     setEditProductId(product._id || product.id);
@@ -201,6 +204,7 @@ function AdminDashboard() {
           setError('Không thể tải sản phẩm');
           setLoading(false);
         });
+<<<<<<< HEAD
     } else if (active === 'users') {
       setUserLoading(true);
       const token = localStorage.getItem('token');
@@ -221,6 +225,8 @@ function AdminDashboard() {
           setUserError('Không thể tải người dùng: ' + err.message);
           setUserLoading(false);
         });
+=======
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
     }
   }, [active]);
 
@@ -399,6 +405,7 @@ function AdminDashboard() {
           </div>
         );
       case 'users':
+<<<<<<< HEAD
         // Style constants
         const inputStyle = { padding: '10px 16px', borderRadius: 12, border: '1.5px solid #b6c6e6', outline: 'none', fontSize: 15, background: '#fafdff', boxShadow: '0 1px 4px #e3eafc' };
         const tableThStyle = { background: '#e3eafc', padding: 16, borderBottom: '2.5px solid #b6c6e6', textAlign: 'left', fontWeight: 800, fontSize: 16, color: '#1976d2', letterSpacing: 0.3 };
@@ -670,6 +677,13 @@ function AdminDashboard() {
       case 'logout':
         try { localStorage.removeItem('token'); } catch {}
         window.location.href = '/';
+=======
+        return <div><h2>Quản lý người dùng</h2><p>Chức năng quản lý người dùng sẽ hiển thị ở đây.</p></div>;
+      case 'orders':
+        return <div><h2>Quản lý đơn hàng</h2><p>Chức năng quản lý đơn hàng sẽ hiển thị ở đây.</p></div>;
+      case 'logout':
+        window.location.reload();
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
         return null;
       default:
         return <div>Chào mừng bạn đến với trang quản trị GadgetPhone!</div>;
@@ -678,6 +692,7 @@ function AdminDashboard() {
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh', background: '#f5f6fa' }}>
+<<<<<<< HEAD
       {toastMsg && (
         <div style={{ position: 'fixed', top: 16, right: 16, zIndex: 1100 }}>
           <div style={{
@@ -693,6 +708,8 @@ function AdminDashboard() {
           </div>
         </div>
       )}
+=======
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
       <aside style={{ width: 240, background: '#1976d2', color: '#fff', padding: '32px 0', boxShadow: '2px 0 8px rgba(60,60,60,0.07)' }}>
         <div style={{ fontWeight: 700, fontSize: 24, textAlign: 'center', marginBottom: 32 }}>Admin Dashboard</div>
         <nav>
