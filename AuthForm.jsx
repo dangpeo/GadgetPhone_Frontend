@@ -99,11 +99,19 @@ function AuthForm({ onAuth, onShowHomepage, forceShowForm }) {
         return;
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (isLogin && onAuth) {
         try {
           if (data && data.token) localStorage.setItem('token', data.token);
         } catch {}
         onAuth(data);
+=======
+      if (isLogin) {
+        if (data.token) {
+          localStorage.setItem('token', data.token);
+        }
+        if (onAuth) onAuth(data);
+>>>>>>> c176ea27bd41eb58091c1146cb441dc299fe8575
       }
 =======
       if (isLogin && onAuth) onAuth(data);
