@@ -230,9 +230,24 @@ function AdminDashboard() {
     }
   }, [active]);
 
+<<<<<<< HEAD
+  const handleDelete = async (id) => {
+    if (!id) return;
+    const confirmDelete = window.confirm('Bạn có chắc muốn xóa sản phẩm này?');
+    if (!confirmDelete) return;
+    try {
+      const res = await fetch(`http://localhost:5000/api/products/${id}`, { method: 'DELETE' });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Không thể xóa sản phẩm');
+      setProducts(prev => prev.filter(p => (p._id || p.id) !== id));
+    } catch (err) {
+      alert(err.message);
+    }
+=======
   const handleDelete = (id) => {
     setProducts(products.filter(p => p.id !== id));
     // TODO: Gọi API xóa sản phẩm ở backend nếu có
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
   };
 
   const handleAddProduct = async (e) => {
