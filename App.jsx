@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import AuthForm from './AuthForm'
 import ProductList from './ProductList'
+<<<<<<< HEAD
 import ProductDetail from './ProductDetail'
+=======
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
 import BannerCarousel from './BannerCarousel'
 import AdminDashboard from './AdminDashboard'
 
@@ -13,14 +16,18 @@ function App() {
   const [showProfile, setShowProfile] = useState(false)
   const [editProfile, setEditProfile] = useState(false)
   const [editData, setEditData] = useState({ username: '', phone: '', address: '' })
+<<<<<<< HEAD
   const [showProductDetail, setShowProductDetail] = useState(false)
   const [selectedProductId, setSelectedProductId] = useState(null)
+=======
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
 
   // Lọc sản phẩm theo search nếu có
   const handleSearch = (value) => {
     setSearch(value)
   }
 
+<<<<<<< HEAD
   // Xử lý xem chi tiết sản phẩm
   const handleViewProductDetail = (productId) => {
     setSelectedProductId(productId)
@@ -33,6 +40,8 @@ function App() {
     setSelectedProductId(null)
   }
 
+=======
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
   // Trang homepage hoặc customer đều dùng chung layout, chỉ khác nút đăng nhập/đăng ký
   const renderNavbar = (showLoginBtn = true, showProfileBtn = false) => (
     <nav style={{ width: '100%', background: 'rgba(255,255,255,0.85)', boxShadow: '0 2px 8px 0 rgba(60,60,60,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 32px', height: 64, position: 'sticky', top: 0, zIndex: 10 }}>
@@ -76,6 +85,7 @@ function App() {
           <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 55%, #a1c4fd 100%)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
             {renderNavbar(true, false)}
             <BannerCarousel />
+<<<<<<< HEAD
             <div style={{ maxWidth: 1200, width: '100%', margin: '40px auto 0 auto', padding: '0 20px' }}>
               {showProductDetail ? (
                 <ProductDetail 
@@ -88,6 +98,10 @@ function App() {
                   onViewDetail={handleViewProductDetail} 
                 />
               )}
+=======
+            <div style={{ maxWidth: 700, width: '100%', margin: '40px auto 0 auto' }}>
+              <ProductList search={search} />
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
             </div>
             {showAuth && (
               <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'rgba(0,0,0,0.25)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -109,6 +123,7 @@ function App() {
         <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 55%, #a1c4fd 100%)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start' }}>
           {renderNavbar(false, true)}
           <BannerCarousel />
+<<<<<<< HEAD
           <div style={{ maxWidth: 1200, width: '100%', margin: '40px auto 0 auto', padding: '0 20px' }}>
             {showProductDetail ? (
               <ProductDetail 
@@ -121,6 +136,10 @@ function App() {
                 onViewDetail={handleViewProductDetail} 
               />
             )}
+=======
+          <div style={{ maxWidth: 700, width: '100%', margin: '40px auto 0 auto' }}>
+            <ProductList search={search} />
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
           </div>
         </div>
         {showProfile && (
@@ -177,7 +196,11 @@ function App() {
                 <button style={{ fontSize: 15, padding: '7px 20px', borderRadius: 8, background: '#fff', color: '#1976d2', border: '2px solid #1976d2', fontWeight: 600, cursor: 'pointer' }} onClick={() => alert('Tính năng đổi mật khẩu sẽ được tích hợp!')}>
                   Đổi mật khẩu
                 </button>
+<<<<<<< HEAD
                 <button style={{ fontSize: 15, padding: '7px 20px', borderRadius: 8, background: '#fff', color: '#d32f2f', border: '2px solid #d32f2f', fontWeight: 600, cursor: 'pointer' }} onClick={() => { try { localStorage.removeItem('token'); } catch {}; setUser(null); setShowProfile(false); setShowHomepage(true); }}>
+=======
+                <button style={{ fontSize: 15, padding: '7px 20px', borderRadius: 8, background: '#fff', color: '#d32f2f', border: '2px solid #d32f2f', fontWeight: 600, cursor: 'pointer' }} onClick={() => { setUser(null); setShowProfile(false); setShowHomepage(true); }}>
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
                   Đăng xuất
                 </button>
               </div>

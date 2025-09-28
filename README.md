@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # GadgetPhone Frontend
 
 Đây là thư mục giao diện người dùng (frontend) cho dự án GadgetPhone, sử dụng React và Vite.
@@ -20,3 +21,7 @@
 - `index.html`: File HTML gốc
 
 > Kết nối API backend qua các request HTTP tới http://localhost:5000 hoặc endpoint backend tương ứng.
+=======
+# GadgetPhone_Backend
+Backend Manager
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022

@@ -82,6 +82,7 @@ function AdminDashboard() {
     }
   }, [active]);
 
+<<<<<<< HEAD
   const handleDelete = async (id) => {
     if (!id) return;
     const confirmDelete = window.confirm('Bạn có chắc muốn xóa sản phẩm này?');
@@ -94,6 +95,11 @@ function AdminDashboard() {
     } catch (err) {
       alert(err.message);
     }
+=======
+  const handleDelete = (id) => {
+    setProducts(products.filter(p => p.id !== id));
+    // TODO: Gọi API xóa sản phẩm ở backend nếu có
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
   };
 
   const handleAddProduct = async (e) => {

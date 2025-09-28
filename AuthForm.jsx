@@ -98,12 +98,16 @@ function AuthForm({ onAuth, onShowHomepage, forceShowForm }) {
         setError(data.error || 'Lỗi không xác định');
         return;
       }
+<<<<<<< HEAD
       if (isLogin && onAuth) {
         try {
           if (data && data.token) localStorage.setItem('token', data.token);
         } catch {}
         onAuth(data);
       }
+=======
+      if (isLogin && onAuth) onAuth(data);
+>>>>>>> c700724f696f319f260b85802a2bd0f7d0f2f022
       if (!isLogin) setIsLogin(true);
       if (!isLogin && data.username) {
         setUsername('');
